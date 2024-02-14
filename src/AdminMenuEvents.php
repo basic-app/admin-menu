@@ -5,9 +5,9 @@
  */
 namespace BasicApp\AdminMenu;
 
-use CodeIgniter\Events\Events as BaseEvents;
+use CodeIgniter\Events\Events;
 
-class Events extends BaseEvents
+class AdminMenuEvents
 {
 
     const EVENT_MAIN_MENU = 'admin-main-menu';
@@ -16,12 +16,12 @@ class Events extends BaseEvents
 
     public static function onMainMenu($callback)
     {
-        static::on(static::EVENT_MAIN_MENU, $callback);
+        return Events::on(static::EVENT_MAIN_MENU, $callback);
     }
 
     public static function onOptionsMenu($callback)
     {
-        static::on(static::EVENT_OPTIONS_MENU, $callback);
+        return Events::on(static::EVENT_OPTIONS_MENU, $callback);
     }
 
 }

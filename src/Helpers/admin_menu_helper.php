@@ -3,7 +3,8 @@
  * @author Basic App Dev Team
  * @license MIT
  */
-use BasicApp\AdminMenu\Events;
+use BasicApp\AdminMenu\AdminMenuEvents;
+use CodeIgniter\Events\Events;
 
 if (!function_exists('adminMainMenu'))
 {
@@ -13,7 +14,7 @@ if (!function_exists('adminMainMenu'))
 
         $mainMenu->items = [];
 
-        Events::trigger(Event::EVENT_MAIN_MENU, $mainMenu);
+        Events::trigger(AdminMenuEvents::EVENT_MAIN_MENU, $mainMenu);
 
         $return = $mainMenu->items;
 
@@ -48,7 +49,7 @@ if (!function_exists('adminOptionsMenu'))
 
         $optionsMenu->items = [];
 
-        Events::trigger(Events::EVENT_OPTIONS_MENU, $optionsMenu);
+        Events::trigger(AdminMenuEvents::EVENT_OPTIONS_MENU, $optionsMenu);
 
         $return = $optionsMenu->items;
 
