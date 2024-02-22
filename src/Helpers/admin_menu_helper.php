@@ -8,7 +8,7 @@ use CodeIgniter\Events\Events;
 
 if (!function_exists('adminMainMenu'))
 {
-    function adminMainMenu(array $customItems = [], bool $postProcessing = true) : array
+    function adminMainMenu(array $customItems = [], bool $removeEmpty = true) : array
     {
         $mainMenu = new stdClass;
 
@@ -23,7 +23,7 @@ if (!function_exists('adminMainMenu'))
             $return = array_merge_recursive($return, $customItems);
         }
 
-        if ($postProcessing)
+        if ($removeEmpty)
         {
             foreach($return as $key => $value)
             {
